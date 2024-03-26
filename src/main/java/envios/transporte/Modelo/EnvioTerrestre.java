@@ -1,6 +1,7 @@
 package envios.transporte.Modelo;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -8,10 +9,10 @@ public class EnvioTerrestre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "tipo_producto_id")
     private TipoProducto tipoProducto;
     private int cantidadProducto;
